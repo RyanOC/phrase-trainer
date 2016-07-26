@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+
+var app   = require('../app'),
+	  debug = require('debug'),
+	  http  = require('http'),
+	  port  = process.env.PORT || 3000,
+	  server,
+	  errors;
+
+app.set('port', port);
+
+server = http.createServer(app);
+
+server.listen(port, function(){
+	console.log('Host app running on port: ' + port);
+});
+
+server.on('error', onError);
+server.on('listening', onListen);
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  switch (error.code) {
+    case 'EACCES':
+      console.error(port + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(port + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+function onListen() {
+  var addr = server.address();
+  debug('Listening on ' + addr);
+}

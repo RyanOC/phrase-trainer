@@ -4,8 +4,7 @@
   "description": "Simple app using YouTube videos for phrase trainering.",
   "main": "index.js",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "test:watch": "npm run test -- --watch"
+    "start": "host/bin/www & node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   },
   "author": "",
   "license": "ISC",
