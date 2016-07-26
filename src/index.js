@@ -8,6 +8,8 @@ import VideoDetail from './components/video_detail';
 
 const API_KEY = '';
 
+//prototype example: http://jsfiddle.net/ryanoc/sq2dV/288/
+
 // Create a new component. This component should produce some html
 class App extends Component {
     constructor(props){
@@ -15,7 +17,9 @@ class App extends Component {
         
         this.state = { 
             videos: [],
-            selectedVideo: null
+            selectedVideo: null,
+            list: null,
+            has_results:false
          };
         
         this.videoSearch('raspberry pi');
@@ -44,7 +48,42 @@ class App extends Component {
                     videos={ this.state.videos } />
             </div>
         );
-    }  
+    }
+
+
+    componentWillMount() {
+        let url = 'api/list',
+            self = this;
+
+        return new Promise(function(resolve, reject) {
+            let request = new XMLHttpRequest();
+
+            request.open('GET', url, true);
+
+            request.onload = function() {
+                console.log(request.response);
+                let response = JSON.parse(request.response);
+
+                if(response.data.length > 0){
+                    
+                    console.log(response.data);
+
+                    self.setState({
+                        list: response.data,
+                        has_results: true
+                    });
+                }
+            };
+
+            request.onerror = function() {
+                reject(Error("Network Error"));
+            };
+
+            request.send();
+        });
+    }
+
+
 }
 
 // Take this component's generated HTML and put it on the page (in the DOM)

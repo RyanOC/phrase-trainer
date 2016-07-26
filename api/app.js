@@ -18,12 +18,14 @@ router.get('/list', function (req, res) {
 
     res.status(200).json({
         data: {
-            message: "list"
+            message: ['item0','item1','item2']
         }
     });
 });
 
 router.get('/detail/:id', function (req, res) {
+
+    console.log(req.params.id);
 
     res.status(200).json({
         data: {

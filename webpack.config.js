@@ -18,6 +18,9 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: './'
+    contentBase: './',
+    proxy: {
+      '/api/*': 'http://localhost:3000/'
+    }
   }
 };
