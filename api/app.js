@@ -18,7 +18,7 @@ router.get('/list', function (req, res) {
 
     res.status(200).json({
         data: {
-            message: ['item0','item1','item2']
+            list: ['item0','item1','item2']
         }
     });
 });

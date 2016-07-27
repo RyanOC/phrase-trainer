@@ -61,8 +61,9 @@ class App extends Component {
             request.open('GET', url, true);
 
             request.onload = function() {
-                console.log(request.response);
+                //console.log(request.response);
                 let response = JSON.parse(request.response);
+                console.log(response);
 
                 if(response.data.length > 0){
                     
