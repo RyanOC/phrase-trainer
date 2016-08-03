@@ -5,31 +5,51 @@ var
 
 router.get('/', function (req, res) {
 
-    //res.send('hello api!');
-
     res.status(200).json({
         data: {
-            message: "hello api!"
+            message: "hello from the api!"
         }
     });
 });
 
-router.get('/list', function (req, res) {
+router.get('/videolist', function (req, res) {
 
     res.status(200).json({
         data: {
-            list: ['item0','item1','item2']
+            Videos: [
+                {
+                    Title:"Thickfreakness",
+                    Desc:"Learn the intro to The Black Key's Thickfreakness",
+                    VideoId:"2om9HkZ89G4",
+                    Category:"Guitar",
+                    Segments: ["1.2-7.8"]
+                },
+                {
+                    Title:"Empire State of Mind",
+                    Desc:"Learn the main beat from Empire State of Mind",
+                    VideoId:"MVPydM-IGpk",
+                    Category:"Drums",
+                    Segments: ["10.0-20.0"]
+                },
+                {
+                    Title:"The Dougie",
+                    Desc:"Learn to dance the Dougie!",
+                    VideoId:"4EIl1qh9lqU",
+                    Category:"Dance",
+                    Segments: ["10.0-20.0"]
+                }
+            ]
         }
     });
 });
 
-router.get('/detail/:id', function (req, res) {
+router.get('/videodetail/:id', function (req, res) {
 
     console.log(req.params.id);
 
     res.status(200).json({
         data: {
-            message: "detail"
+            message: "videodetail" + req.params.id
         }
     });
 });

@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
-import SearchBar from './components/search_bar';
+//import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
 
@@ -36,12 +36,12 @@ class App extends Component {
     }
     
     render(){
-        const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 900);
+        //const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 900);
         
         
         return (
             <div>
-                <SearchBar onSearchTermChange={videoSearch} />
+
                 <VideoDetail video={ this.state.selectedVideo }/>
                 <VideoList 
                     onVideoSelect={selectedVideo => this.setState({selectedVideo}) }
@@ -51,8 +51,15 @@ class App extends Component {
     }
 
 
+
+
+
+
+
+
+
     componentWillMount() {
-        let url = 'api/list',
+        let url = 'api/videolist',
             self = this;
 
         return new Promise(function(resolve, reject) {

@@ -9,7 +9,7 @@ class SearchBar extends Component {
     }
     
     render() {
-        //return <input onChange={this.onInputChange} />;
+
         return (
             <div className="search-bar">
                 <input 
