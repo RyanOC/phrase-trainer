@@ -29,14 +29,14 @@ router.get('/videolist', function (req, res) {
                     Desc:"Learn the main beat from Empire State of Mind",
                     VideoId:"MVPydM-IGpk",
                     Category:"Drums",
-                    Segments: ["10.0-20.0"]
+                    Segments: ["36.4-61.9"]
                 },
                 {
                     Title:"The Dougie",
                     Desc:"Learn to dance the Dougie!",
                     VideoId:"4EIl1qh9lqU",
                     Category:"Dance",
-                    Segments: ["10.0-20.0"]
+                    Segments: ["104-108"]
                 }
             ]
         }
